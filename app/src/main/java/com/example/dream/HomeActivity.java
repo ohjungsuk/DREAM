@@ -100,6 +100,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        img_rewardService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this,PresentActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         img_requestlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Completion"></activity>
+        <activity android:name=".OkPresentActivity"/>
+        <activity android:name=".PresentActivity" />
+        <activity android:name=".Completion" />
         <activity android:name=".Detail_RequestList" />
         <activity android:name=".RequestList" />
         <activity android:name=".WriteRequestList" />

@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ import com.example.dream.Services.GetRL_Service;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static com.example.dream.ApplicationClass.b_type;
+import static com.example.dream.ApplicationClass.selection;
 import static com.example.dream.ApplicationClass.u_id;
 
 public class RequestList extends AppCompatActivity implements GetRL_ActivityView {
@@ -38,6 +41,7 @@ public class RequestList extends AppCompatActivity implements GetRL_ActivityView
     private String duedate;
 
     ImageButton RL_imgbtn_back;
+    Button RL_btn_bybtype,RL_btn_getall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,9 @@ public class RequestList extends AppCompatActivity implements GetRL_ActivityView
 
         setUp();
         activityMover();
+
+        selection = "1";
+        System.out.println("sel"+selection);
 
         SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swipe_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -67,7 +74,8 @@ public class RequestList extends AppCompatActivity implements GetRL_ActivityView
     }
 
     public void setUp(){
-
+        RL_btn_bybtype = (Button)findViewById(R.id.RL_btn_bybtype);
+        RL_btn_getall = (Button)findViewById(R.id.RL_btn_getall);
         RL_imgbtn_back = (ImageButton)findViewById(R.id.RL_imgbtn_back);
     }
 
@@ -78,6 +86,24 @@ public class RequestList extends AppCompatActivity implements GetRL_ActivityView
                 Intent intent = new Intent(RequestList.this,HomeActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        RL_btn_bybtype.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(RequestList.this, "혈액형별 조회 성공", Toast.LENGTH_SHORT).show();
+                selection = "2";
+                requestList_adapter.clearData();
+                getRecyclerView();
+            }
+        });
+        RL_btn_getall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(RequestList.this, "전체 리스트 조회 성공", Toast.LENGTH_SHORT).show();
+                selection = "1";
+                requestList_adapter.clearData();
+                getRecyclerView();
             }
         });
     }
@@ -147,28 +173,52 @@ public class RequestList extends AppCompatActivity implements GetRL_ActivityView
     @Override
     public void getRLSuccess(GetRL_Response getRL_response) {
         ArrayList<RequestListInfo> datas = (ArrayList<RequestListInfo>)getRL_response.getData();
+        System.out.println("sel"+selection);
         if (getRL_response!=null){
             for (RequestListInfo requestListInfo : datas){
-                System.out.println(requestListInfo.getBlood_type().toString());
-                System.out.println("1");
                 //mList.clear();
-                mmList.add(new RequestListInfo(
-                        requestListInfo.getRequest_id(),
-                        requestListInfo.getId(),
-                        requestListInfo.getDate().toString(),
-                        requestListInfo.getBlood_type().toString(),
-                        requestListInfo.getBlood_kind().toString(),
-                        requestListInfo.getNeed(),
-                        requestListInfo.getDeadline().toString(),
-                        requestListInfo.getPatient_name(),
-                        requestListInfo.getPatient_id(),
-                        requestListInfo.getPatient_loc(),
-                        requestListInfo.getPatient_sex(),
-                        requestListInfo.getPatient_age(),
-                        requestListInfo.getPatient_birth(),
-                        requestListInfo.getHospital_name(),
-                        requestListInfo.getPhone(),
-                        requestListInfo.getRequest_detail()));
+                if (selection.equals("1")){
+                    mmList.add(new RequestListInfo(
+                            requestListInfo.getRequest_id(),
+                            requestListInfo.getId(),
+                            requestListInfo.getDate().toString(),
+                            requestListInfo.getBlood_type().toString(),
+                            requestListInfo.getBlood_kind().toString(),
+                            requestListInfo.getNeed(),
+                            requestListInfo.getDeadline().toString(),
+                            requestListInfo.getPatient_name(),
+                            requestListInfo.getPatient_id(),
+                            requestListInfo.getPatient_loc(),
+                            requestListInfo.getPatient_sex(),
+                            requestListInfo.getPatient_age(),
+                            requestListInfo.getPatient_birth(),
+                            requestListInfo.getHospital_name(),
+                            requestListInfo.getPhone(),
+                            requestListInfo.getRequest_detail()));
+                }else if(selection.equals("2")){
+                    //System.out.println(b_type);
+                    //System.out.println("2"+requestListInfo.getBlood_type());
+                    if (requestListInfo.getBlood_type().equals(b_type)){
+                        System.out.println("test"+requestListInfo.getRequest_id());
+                        mmList.add(new RequestListInfo(
+                                requestListInfo.getRequest_id(),
+                                requestListInfo.getId(),
+                                requestListInfo.getDate().toString(),
+                                requestListInfo.getBlood_type().toString(),
+                                requestListInfo.getBlood_kind().toString(),
+                                requestListInfo.getNeed(),
+                                requestListInfo.getDeadline().toString(),
+                                requestListInfo.getPatient_name(),
+                                requestListInfo.getPatient_id(),
+                                requestListInfo.getPatient_loc(),
+                                requestListInfo.getPatient_sex(),
+                                requestListInfo.getPatient_age(),
+                                requestListInfo.getPatient_birth(),
+                                requestListInfo.getHospital_name(),
+                                requestListInfo.getPhone(),
+                                requestListInfo.getRequest_detail()));
+                    }
+                }
             }
         }
 

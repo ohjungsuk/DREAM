@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorpink</item>
         <item name="colorControlNormal">@color/colorpink</item>
     </style>
+
+    <style name="AppThemeDialog" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/colorgray</item>
+    </style>
 </resources>

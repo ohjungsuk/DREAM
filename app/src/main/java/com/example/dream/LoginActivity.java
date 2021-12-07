@@ -19,6 +19,7 @@ import com.example.dream.Interfaces.LoginActivityView;
 import com.example.dream.Models.LoginResponse;
 import com.example.dream.Services.LoginService;
 
+import static com.example.dream.ApplicationClass.b_type;
 import static com.example.dream.ApplicationClass.donor_count;
 import static com.example.dream.ApplicationClass.mode;
 import static com.example.dream.ApplicationClass.u_id;
@@ -140,6 +141,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityVie
                 Integer d_count = response.getData().getDonor_count();
                 u_id = response.getData().getId();
                 donor_count = String.valueOf(response.getData().getDonor_count());
+                b_type = response.getData().getBlood_type();
                 System.out.println("ID" +
                         " = " + u_id);
                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);

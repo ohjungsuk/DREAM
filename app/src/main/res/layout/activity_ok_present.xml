@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:gravity="center"
+    tools:context=".OkPresentActivity">
+    <TextView
+        android:id="@+id/ok_tv_present"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보 상 품"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보상받기 위한 정보를 입력해주세요"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+    <View
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/black"/>
+    <LinearLayout
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보상받을 주소 : "
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/ok_edt_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="주소  ex)xxx-xx-xxxx"
+            android:textColorHint="@color/colorgray"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="필요 횟수 : "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/ok_tv_present_count"
+            android:padding="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:text=" ** 개" />
+
+        <TextView
+            android:layout_marginStart="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="본인 횟수 : "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/ok_tv_my_count"
+            android:padding="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:text=" ** 개" />
+    </LinearLayout>
+    <View
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginHorizontal="15sp"
+        android:backgroundTint="@color/black"/>
+    <LinearLayout
+        android:layout_marginHorizontal="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/ok_btn_cancel"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:stateListAnimator="@null"
+            android:text="취소"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/ok_btn_done"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:stateListAnimator="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보상 받기"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>

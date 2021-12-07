@@ -27,7 +27,9 @@ public class ApplicationClass extends Application {
 
     public static String u_id = null;
     public static String donor_count = null;
+    public static String b_type = null;
     public static String mode = null;
+    public static String selection = null; // 1: 전체 조회 , 2: 혈액형별 조회
 
     //날짜 형식
     public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
