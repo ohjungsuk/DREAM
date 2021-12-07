@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WriteRequestList">
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="55dp">
+        <ImageButton
+            android:id="@+id/WRL_imgbtn_back"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/backarrow"/>
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="지정헌혈 요청하기"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/black"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="수혈(환자)의 정보를 정확하게 입력해주세요"
+                android:textColor="@color/colorpink"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="요청하는 혈액형"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+                android:id="@+id/WRL_radiogroup_bloodtype"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/WRL_rg_A"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="A+" />
+
+                <RadioButton
+                    android:id="@+id/WRL_rg_B"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="B+" />
+
+                <RadioButton
+                    android:id="@+id/WRL_rg_AB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="AB+" />
+
+                <RadioButton
+                    android:id="@+id/WRL_rg_O"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="O+" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="필요한 헌혈의 종류"
+                android:textColor="@color/black"/>
+
+            <RadioGroup
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <RadioGroup
+                            android:id="@+id/radiogroup_bloodkind"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <RadioButton
+                                android:id="@+id/WRL_rg_kind1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:text="전혈" />
+
+                            <RadioButton
+                                android:id="@+id/WRL_rg_kind2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:text="성분채혈 혈소판" />
+
+                            <RadioButton
+                                android:id="@+id/WRL_rg_kind3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="성분채혈 백혈구" />
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:text=""/>
+                        <RadioButton
+                            android:id="@+id/WRL_rg_kind4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity=""
+                            android:layout_weight="1"
+                            android:text="농축적혈구" />
+                        <RadioButton
+                            android:id="@+id/WRL_rg_kind5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="백혈구여과제거적혈구" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="필요 수량"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/WRL_edt_bloodnum"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:padding="6dp"
+                    android:textSize="13sp"
+                    android:layout_marginEnd="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/borderline"
+                    android:hint="숫자입력"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="개"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:layout_weight="1"
+                    android:text="필요한 날짜"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/WRL_tv_start_date"
+                        android:background="@drawable/borderline"
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:hint="2021-01-01" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:text="~"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/WRL_tv_end_date"
+                        android:background="@drawable/borderline"
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:hint="직접선택" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="환자성명 (필수)"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/WRL_edt_requester_name"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:hint="ex) 짱구"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="환자위치 (필수)"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/WRL_edt_requester_loc"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:hint="ex) 대구광역시"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="환자등록번호 (필수)"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/WRL_edt_registerNum"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:stateListAnimator="@null"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:hint="ex) 12345"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="의료기관 (필수)"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/WRL_edt_hospital"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:hint="ex) 강남세브란스"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="보호자 연락처 (필수)"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/WRL_edt_requester_phonenum"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:inputType="number"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:hint="ex) 01044551122"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="환자성별 (필수)"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/WRL_edt_requester_sex"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:hint="ex) 남/여"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="환자나이 (필수)"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/WRL_edt_requester_age"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:inputType="number"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:hint="ex) 25"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="환자생일 (필수)"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/WRL_edt_requester_birthday"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:hint="970211"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:text="요청사연"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/WRL_edt_request_detail"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:layout_marginEnd="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/borderline"
+                android:hint="요청사연을 입력하주세요"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:id="@+id/WRL_checkkbox_private"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="개인정보 제공 동의(필수)"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
+                android:text="나는 환자의 개인정보 제공에 적법한 권한이 있는 환자 본인 또는 환자의 법정대리인 또는 환자 개인정보 제공 동의에 대한 적법한 대리권을 수여 받은 자 입니다."
+                android:textSize="11sp"
+                android:textColor="@color/colorgray"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:text="요청자님께 당부드리는 말씀"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="370dp"
+                android:background="@color/colorgray"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:text=""
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/WRL_btn_upload"
+        android:stateListAnimator="@null"
+        android:background="@color/colorpink"
+        android:layout_gravity="center_vertical"
+        android:text="등록하기"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
